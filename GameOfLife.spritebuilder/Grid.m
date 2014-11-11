@@ -147,6 +147,16 @@ static const int GRID_COLUMNS = 10;
     _totalAlive = numAlive;
 }
 
+-(void) updateAliveCount {
+    int numAlive = 0;
+    for (int i = 0; i < [_gridArray count]; i++) {
+        for (int j = 0; j < [_gridArray[i] count]; j++) {
+            if (_gridArray[i][j].isAlive) numAlive++;
+        }
+    }
+    _totalAlive = numAlive;
+}
+
 - (BOOL)isIndexValidForX:(int)x andY:(int)y
 {
     BOOL isIndexValid = YES;
